@@ -1,0 +1,67 @@
+{
+  "name": "rnmail",
+  "version": "0.0.1",
+  "private": true,
+  "license": "Apache-2.0",
+  "author": "Takuya Matsuyama<hi@craftz.dog> (https://www.craftz.dog/)",
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+  },
+  "dependencies": {
+    "@gorhom/bottom-sheet": "^4.3.1",
+    "@react-navigation/drawer": "^6.4.1",
+    "@react-navigation/native": "^6.0.10",
+    "@react-navigation/native-stack": "^6.6.2",
+    "@shopify/restyle": "^2.1.0",
+    "jotai": "^1.7.0",
+    "lorem-ipsum": "^2.0.4",
+    "react": "17.0.2",
+    "react-native": "0.68.2",
+    "react-native-gesture-handler": "^2.4.2",
+    "react-native-reanimated": "^2.8.0",
+    "react-native-safe-area-context": "^4.2.5",
+    "react-native-screens": "^3.13.1",
+    "react-native-svg": "^12.3.0",
+    "react-native-vector-icons": "^9.1.0",
+    "shortid": "^2.2.16"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/runtime": "^7.12.5",
+    "@types/jest": "^26.0.23",
+    "@types/react-native": "^0.67.3",
+    "@types/react-native-vector-icons": "^6.4.10",
+    "@types/react-test-renderer": "^17.0.1",
+    "@types/shortid": "^0.0.29",
+    "@typescript-eslint/eslint-plugin": "^5.17.0",
+    "@typescript-eslint/parser": "^5.17.0",
+    "babel-jest": "^26.6.3",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.5.0",
+    "jest": "^26.6.3",
+    "metro-react-native-babel-preset": "^0.67.0",
+    "prettier": "^2.6.2",
+    "react-native-svg-transformer": "^1.0.0",
+    "react-test-renderer": "17.0.2",
+    "typescript": "^4.4.4"
+  },
+  "resolutions": {
+    "@types/react": "^17"
+  },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }
+}
