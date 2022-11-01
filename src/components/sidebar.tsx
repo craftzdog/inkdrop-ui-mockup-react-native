@@ -23,7 +23,7 @@ const Sidebar: React.FC<DrawerContentComponentProps> = ({ navigation }) => {
   )
 
   const renderThemeItem = useCallback(
-    ({ item }) => {
+    ({ item }: { item: ThemeMeta }) => {
       return <ThemeListItem theme={item} onPress={handleThemeItemPress} />
     },
     [handleThemeItemPress]

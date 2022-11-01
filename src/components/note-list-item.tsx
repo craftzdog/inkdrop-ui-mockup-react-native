@@ -2,7 +2,7 @@ import { Box, Text, TouchableOpacity } from '@/atoms'
 import { Note } from '@/models'
 import React, { useCallback } from 'react'
 import NoteListItemActionView from './note-list-item-action-view'
-import SwipeableView from './swipeable-view'
+import SwipeableView, { BackViewProps } from './swipeable-view'
 
 export interface ListItemProps extends Note {
   onPress: (noteId: string) => void
@@ -15,14 +15,16 @@ const NoteListItem: React.FC<ListItemProps> = props => {
     onPress(id)
   }, [onPress, id])
   const handleSwipeLeft = useCallback(
-    done => {
+    (done: () => void) => {
       onSwipeLeft && onSwipeLeft(id, done)
     },
     [id, onSwipeLeft]
   )
 
   const renderBackView = useCallback(
-    ({ progress }) => <NoteListItemActionView progress={progress} />,
+    ({ progress }: BackViewProps) => (
+      <NoteListItemActionView progress={progress} />
+    ),
     []
   )
   return (

@@ -32,7 +32,7 @@ const NoteList: React.FC<Props> = ({
   onItemSwipeLeft
 }) => {
   const renderItem = useCallback(
-    ({ item }) => {
+    ({ item }: { item: Note }) => {
       return (
         <NoteListItem
           {...item}
