@@ -1,6 +1,6 @@
 import { AnimatedBox, Box } from '@/atoms'
 import React from 'react'
-import { useAnimatedStyle } from 'react-native-reanimated'
+import { SharedValue, useAnimatedStyle } from 'react-native-reanimated'
 import FeatherIcon from './icon'
 
 interface Props {
