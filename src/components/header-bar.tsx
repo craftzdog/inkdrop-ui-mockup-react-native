@@ -1,10 +1,11 @@
 import React, { useCallback, useRef } from 'react'
 import { TextInput as RNTextInput } from 'react-native'
-import { Bar, TextInput } from '@/atoms'
+import { Bar, TextInput, TouchableOpacity } from '@/atoms'
 import AnimatedBox, { AnimatedBoxProps } from '@/atoms/animated-box'
 import { searchInputHasFocusAtom, searchQueryAtom } from '@/states/search-bar'
 import { useAtom } from 'jotai'
 import HeaderBarLeftButton from './header-bar-left-button'
+import FeatherIcon from './icon'
 
 type Props = AnimatedBoxProps & {
   onSidebarToggle: () => any
@@ -24,6 +25,10 @@ const HeaderBar: React.FC<Props> = props => {
 
   const handleSearchInputBlur = () => {
     setSearchInputHasFocus(false)
+  }
+
+  const handleClearButtonPress = () => {
+    setSearchQuery('')
   }
 
   const handleLeftButtonPress = useCallback(() => {
@@ -65,6 +70,16 @@ const HeaderBar: React.FC<Props> = props => {
           onBlur={handleSearchInputBlur}
           onChangeText={setSearchQuery}
         />
+        {searchQuery.length > 0 && (
+          <TouchableOpacity
+            m="xs"
+            p="xs"
+            rippleBorderless
+            onPress={handleClearButtonPress}
+          >
+            <FeatherIcon name="x" size={22} />
+          </TouchableOpacity>
+        )}
       </Bar>
     </AnimatedBox>
   )
