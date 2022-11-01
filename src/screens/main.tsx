@@ -3,6 +3,7 @@ import HeaderBar from '@/components/header-bar'
 import FeatherIcon from '@/components/icon'
 import MoveNoteSheet from '@/components/move-note-sheet'
 import NoteList from '@/components/note-list'
+import NoteListHeaderTitleBar from '@/components/note-list-header-title-bar'
 import ThemePicker from '@/components/theme-picker'
 import useStickyHeader from '@/hooks/use-sticky-header'
 import { HomeDrawerParamList, RootStackParamList } from '@/navs'
@@ -63,6 +64,7 @@ export default function MainScreen({ navigation }: Props) {
         onScroll={handleScroll}
         onItemPress={handleNoteListItemPress}
         onItemSwipeLeft={handleNoteListItemSwipeLeft}
+        ListHeaderComponent={NoteListHeaderTitleBar}
       />
       <HeaderBar style={headerBarStyle} onLayout={handleNoteListLayout}>
         <TouchableOpacity
