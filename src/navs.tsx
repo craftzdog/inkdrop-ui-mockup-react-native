@@ -13,9 +13,7 @@ export type HomeDrawerParamList = {
 
 export type RootStackParamList = {
   Home: NavigatorScreenParams<HomeDrawerParamList>
-  Detail: {
-    noteId: string
-  }
+  Detail: undefined
 }
 
 const Stack = createNativeStackNavigator<RootStackParamList>()

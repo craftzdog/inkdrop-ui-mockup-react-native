@@ -3,11 +3,16 @@ import { Box, Container, Text, TouchableOpacity } from '@/atoms'
 import FeatherIcon from '@/components/icon'
 import Navbar from '@/components/navbar'
 import { RootStackParamList } from '@/navs'
-import { NativeStackScreenProps } from '@react-navigation/native-stack'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { useAtom } from 'jotai'
+import { editingNoteIdAtom } from '@/states/editor'
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Detail'>
+type Props = {
+  navigation: NativeStackNavigationProp<RootStackParamList>
+}
 
-export default function DetailScreen({ navigation, route }: Props) {
+export default function DetailScreen({ navigation }: Props) {
+  const [editingNoteId] = useAtom(editingNoteIdAtom)
   const handleBackPress = useCallback(() => {
     navigation.goBack()
   }, [])
@@ -26,7 +31,7 @@ export default function DetailScreen({ navigation, route }: Props) {
         <Box width={36} />
       </Navbar>
       <Box flex={1} alignItems="center" justifyContent="center">
-        <Text mb="hg">{JSON.stringify(route.params, null, 4)}</Text>
+        <Text mb="hg">Editing Note ID: {editingNoteId}</Text>
       </Box>
     </Container>
   )
