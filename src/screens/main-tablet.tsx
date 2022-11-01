@@ -1,9 +1,9 @@
-import { Container, Text } from '@/atoms'
 import { HomeDrawerParamList, RootStackParamList } from '@/navs'
 import { DrawerScreenProps } from '@react-navigation/drawer'
 import { CompositeScreenProps } from '@react-navigation/native'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
-import React from 'react'
+import React, { useCallback } from 'react'
+import NoteListScreenForTablet from './note-list-tablet'
 
 type Props = CompositeScreenProps<
   DrawerScreenProps<HomeDrawerParamList, 'Main'>,
@@ -11,9 +11,14 @@ type Props = CompositeScreenProps<
 >
 
 export default function MainScreenForTablet({ navigation }: Props) {
+  const toggleSidebar = useCallback(() => {
+    // TODO
+  }, [])
+
   return (
-    <Container justifyContent="center" alignItems="center">
-      <Text>Tablet layout!</Text>
-    </Container>
+    <NoteListScreenForTablet
+      navigation={navigation}
+      onSidebarToggle={toggleSidebar}
+    />
   )
 }
