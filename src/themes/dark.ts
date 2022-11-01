@@ -25,6 +25,7 @@ export const theme: Theme = createTheme({
     $foreground: p.slate900,
     $separator: p.slate100,
     $navbarBackground: p.slate20,
+    $navbarBorderBottom: p.slate00,
     $headerBarBackground: p.slate40,
     $sidebarBackground: p.slate30,
     $sidebarForeground: p.slate900,
