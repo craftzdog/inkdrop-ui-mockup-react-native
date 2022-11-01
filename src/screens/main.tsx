@@ -58,19 +58,11 @@ export default function MainScreen({ navigation }: Props) {
         onItemSwipeLeft={handleNoteListItemSwipeLeft}
         ListHeaderComponent={NoteListHeaderTitleBar}
       />
-      <HeaderBar style={headerBarStyle} onLayout={handleNoteListLayout}>
-        <TouchableOpacity
-          m="xs"
-          p="xs"
-          rippleBorderless
-          onPress={handleSidebarToggle}
-        >
-          <FeatherIcon name="menu" size={22} />
-        </TouchableOpacity>
-        <Box flex={1} alignItems="center">
-          <Text fontWeight="bold">All Notes</Text>
-        </Box>
-      </HeaderBar>
+      <HeaderBar
+        style={headerBarStyle}
+        onLayout={handleNoteListLayout}
+        onSidebarToggle={handleSidebarToggle}
+      />
       <MoveNoteSheet
         ref={refMoveNoteSheet}
         onClose={handleMoveNoteSheetClose}
