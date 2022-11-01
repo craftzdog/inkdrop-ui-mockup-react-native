@@ -1,6 +1,5 @@
-import { Box, Container, Text, TouchableOpacity } from '@/atoms'
+import { Container } from '@/atoms'
 import HeaderBar from '@/components/header-bar'
-import FeatherIcon from '@/components/icon'
 import MoveNoteSheet from '@/components/move-note-sheet'
 import NoteList from '@/components/note-list'
 import NoteListHeaderTitleBar from '@/components/note-list-header-title-bar'
