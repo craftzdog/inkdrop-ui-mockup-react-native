@@ -16,7 +16,7 @@ const StyledFlatList = createBox<Theme, AnimateProps<FlatListProps<Note>>>(
   Animated.FlatList
 )
 
-interface Props {
+export interface Props {
   contentInsetTop: number
   ListHeaderComponent?: React.ComponentType<any> | null | undefined
   onScroll: (event: NativeSyntheticEvent<NativeScrollEvent>) => void
