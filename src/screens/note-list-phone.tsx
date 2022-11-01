@@ -3,7 +3,7 @@ import { editingNoteIdAtom } from '@/states/editor'
 import { DrawerNavigationProp } from '@react-navigation/drawer'
 import { CompositeNavigationProp } from '@react-navigation/native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
-import { useAtom, useSetAtom } from 'jotai'
+import { useSetAtom } from 'jotai'
 import React, { useCallback } from 'react'
 import NoteListScreen from './note-list'
 
