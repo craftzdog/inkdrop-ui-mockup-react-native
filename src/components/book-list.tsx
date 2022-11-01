@@ -25,7 +25,7 @@ const BookList: React.FC<Props> = ({
   inBottomSheet
 }) => {
   const renderItem = useCallback(
-    ({ item }) => {
+    ({ item }: { item: Book }) => {
       return <BookListItem {...item} onPress={onPressItem} color={color} />
     },
     [onPressItem]

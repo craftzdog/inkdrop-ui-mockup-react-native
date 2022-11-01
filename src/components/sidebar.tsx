@@ -9,6 +9,7 @@ const Sidebar: React.FC<DrawerContentComponentProps> = ({ navigation }) => {
   const handleBookListItemPress = useCallback(() => {
     navigation.closeDrawer()
   }, [navigation])
+
   return (
     <Box flex={1} bg="$sidebarBackground">
       <SafeAreaView>
