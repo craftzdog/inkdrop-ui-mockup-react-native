@@ -1,10 +1,10 @@
 import useResponsiveLayout from '@/hooks/use-responsive-layout'
-import * as React from 'react'
+import React, { ReactElement } from 'react'
 import { useEffect } from 'react'
 
 type Props = {
-  renderOnTablet?: React.ReactElement<any, any>
-  renderOnPhone?: React.ReactElement<any, any>
+  renderOnTablet?: () => ReactElement<any, any>
+  renderOnPhone?: () => ReactElement<any, any>
   onLayoutChange?: (layout: 'tablet' | 'phone') => any
 }
 
@@ -17,9 +17,9 @@ const ResponsiveLayout: React.FC<Props> = props => {
   let children: React.ReactElement<any, any> | null = null
 
   if (isTablet === true && renderOnTablet) {
-    children = renderOnTablet
+    children = renderOnTablet()
   } else if (isTablet === false && renderOnPhone) {
-    children = renderOnPhone
+    children = renderOnPhone()
   }
 
   useEffect(() => {
