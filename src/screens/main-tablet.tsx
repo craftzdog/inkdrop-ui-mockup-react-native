@@ -1,3 +1,5 @@
+import { Box } from '@/atoms'
+import ThreeColumnLayout from '@/components/three-column-layout'
 import { HomeDrawerParamList, RootStackParamList } from '@/navs'
 import { DrawerScreenProps } from '@react-navigation/drawer'
 import { CompositeScreenProps } from '@react-navigation/native'
@@ -16,9 +18,15 @@ export default function MainScreenForTablet({ navigation }: Props) {
   }, [])
 
   return (
-    <NoteListScreenForTablet
-      navigation={navigation}
-      onSidebarToggle={toggleSidebar}
+    <ThreeColumnLayout
+      renderLeftView={() => <Box flex={1} bg="red" />}
+      renderMiddleView={() => (
+        <NoteListScreenForTablet
+          navigation={navigation}
+          onSidebarToggle={toggleSidebar}
+        />
+      )}
+      renderRightView={() => <Box flex={1} bg="blue" />}
     />
   )
 }
