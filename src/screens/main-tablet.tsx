@@ -5,7 +5,7 @@ import { HomeDrawerParamList, RootStackParamList } from '@/navs'
 import { DrawerScreenProps } from '@react-navigation/drawer'
 import { CompositeScreenProps } from '@react-navigation/native'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
-import React, { useCallback } from 'react'
+import React, { useCallback, useState } from 'react'
 import NoteListScreenForTablet from './note-list-tablet'
 
 type Props = CompositeScreenProps<
@@ -15,11 +15,12 @@ type Props = CompositeScreenProps<
 
 export default function MainScreenForTablet({ navigation }: Props) {
   const { isPortrait } = useResponsiveLayout()
+  const [sidebarVisible, setSidebarVisible] = useState(true)
   const toggleSidebar = useCallback(() => {
-    // TODO
+    setSidebarVisible(visible => !visible)
   }, [])
 
-  const leftViewVisible = !isPortrait
+  const leftViewVisible = !isPortrait && sidebarVisible
 
   return (
     <ThreeColumnLayout
