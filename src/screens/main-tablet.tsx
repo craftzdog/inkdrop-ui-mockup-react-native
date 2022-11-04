@@ -1,5 +1,6 @@
 import { Box } from '@/atoms'
 import ThreeColumnLayout from '@/components/three-column-layout'
+import useResponsiveLayout from '@/hooks/use-responsive-layout'
 import { HomeDrawerParamList, RootStackParamList } from '@/navs'
 import { DrawerScreenProps } from '@react-navigation/drawer'
 import { CompositeScreenProps } from '@react-navigation/native'
@@ -13,9 +14,12 @@ type Props = CompositeScreenProps<
 >
 
 export default function MainScreenForTablet({ navigation }: Props) {
+  const { isPortrait } = useResponsiveLayout()
   const toggleSidebar = useCallback(() => {
     // TODO
   }, [])
+
+  const leftViewVisible = !isPortrait
 
   return (
     <ThreeColumnLayout
@@ -27,6 +31,7 @@ export default function MainScreenForTablet({ navigation }: Props) {
         />
       )}
       renderRightView={() => <Box flex={1} bg="blue" />}
+      leftViewVisible={leftViewVisible}
     />
   )
 }
