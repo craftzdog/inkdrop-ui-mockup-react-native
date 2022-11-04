@@ -5,6 +5,7 @@ import * as React from 'react'
 import Sidebar from './components/sidebar'
 import useDrawerEnabled from './hooks/use-drawer-enabled'
 import DetailScreen from './screens/detail'
+import DetailScreenForPhone from './screens/detail-phone'
 import MainScreen from './screens/main'
 
 export type HomeDrawerParamList = {
@@ -55,7 +56,7 @@ export default function Navigations() {
       />
       <Stack.Screen
         name="Detail"
-        component={DetailScreen}
+        component={DetailScreenForPhone}
         options={{
           headerShown: false
         }}
