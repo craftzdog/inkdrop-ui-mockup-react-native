@@ -1,4 +1,5 @@
 import { Box } from '@/atoms'
+import Sidebar from '@/components/sidebar'
 import ThreeColumnLayout from '@/components/three-column-layout'
 import useResponsiveLayout from '@/hooks/use-responsive-layout'
 import { HomeDrawerParamList, RootStackParamList } from '@/navs'
@@ -24,7 +25,7 @@ export default function MainScreenForTablet({ navigation }: Props) {
 
   return (
     <ThreeColumnLayout
-      renderLeftView={() => <Box flex={1} bg="red" />}
+      renderLeftView={() => <Sidebar />}
       renderMiddleView={() => (
         <NoteListScreenForTablet
           navigation={navigation}

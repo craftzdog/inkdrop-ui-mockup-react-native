@@ -1,7 +1,8 @@
 import { Box, Text } from '@/atoms'
 import activeThemeId from '@/states/theme'
 import { Theme, ThemeMeta, ThemeNames, themes } from '@/themes'
-import { DrawerContentComponentProps } from '@react-navigation/drawer'
+import { DrawerNavigationHelpers } from '@react-navigation/drawer/lib/typescript/src/types'
+import { useNavigation } from '@react-navigation/native'
 import { createBox } from '@shopify/restyle'
 import { useAtom } from 'jotai'
 import React, { useCallback } from 'react'
@@ -9,9 +10,11 @@ import { FlatList, FlatListProps, SafeAreaView } from 'react-native'
 import InkdropLogo from './inkdrop-logo'
 import ThemeListItem from './theme-list-item'
 
+type Props = {}
 const StyledFlatList = createBox<Theme, FlatListProps<ThemeMeta>>(FlatList)
 
-const Sidebar: React.FC<DrawerContentComponentProps> = ({ navigation }) => {
+const Sidebar: React.FC<Props> = () => {
+  const navigation = useNavigation<DrawerNavigationHelpers>()
   const [, setActiveTheme] = useAtom(activeThemeId)
 
   const handleThemeItemPress = useCallback(
