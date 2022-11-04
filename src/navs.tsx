@@ -4,7 +4,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import * as React from 'react'
 import Sidebar from './components/sidebar'
 import useDrawerEnabled from './hooks/use-drawer-enabled'
-import DetailScreen from './screens/detail'
 import DetailScreenForPhone from './screens/detail-phone'
 import MainScreen from './screens/main'
 
@@ -31,7 +30,7 @@ function Home() {
         swipeEdgeWidth: 200,
         swipeEnabled: swipeEnabled
       }}
-      drawerContent={props => <Sidebar {...props} />}
+      drawerContent={Sidebar}
     >
       <Drawer.Screen
         name="Main"
