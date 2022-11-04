@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import * as React from 'react'
 import Sidebar from './components/sidebar'
 import useDrawerEnabled from './hooks/use-drawer-enabled'
+import useResponsiveLayout from './hooks/use-responsive-layout'
 import DetailScreenForPhone from './screens/detail-phone'
 import MainScreen from './screens/main'
 
@@ -20,13 +21,17 @@ const Stack = createNativeStackNavigator<RootStackParamList>()
 const Drawer = createDrawerNavigator<HomeDrawerParamList>()
 
 function Home() {
+  const { isTablet } = useResponsiveLayout()
   const swipeEnabled = useDrawerEnabled()
 
   return (
     <Drawer.Navigator
       initialRouteName="Main"
       screenOptions={{
-        drawerType: 'back',
+        drawerType: isTablet ? 'front' : 'back',
+        drawerStyle: {
+          width: isTablet ? 280 : '90%'
+        },
         swipeEdgeWidth: 200,
         swipeEnabled: swipeEnabled
       }}
