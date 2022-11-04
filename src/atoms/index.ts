@@ -7,6 +7,7 @@ import Bar from './bar'
 import Pressable from './pressable'
 import Touchable, { TouchableOpacity } from './touchable'
 import SafeAreaView from './safe-area-view'
+import ScrollView from './scroll-view'
 
 export {
   Box,
@@ -18,5 +19,6 @@ export {
   Pressable,
   Touchable,
   TouchableOpacity,
-  SafeAreaView
+  SafeAreaView,
+  ScrollView
 }
