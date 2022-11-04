@@ -1,28 +1,21 @@
-import React, { useCallback } from 'react'
-import { Box, Container, Text, TouchableOpacity } from '@/atoms'
-import FeatherIcon from '@/components/icon'
+import React, { ReactNode } from 'react'
+import { Box, Container, Text } from '@/atoms'
 import Navbar from '@/components/navbar'
-import { RootStackParamList } from '@/navs'
-import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { useAtom } from 'jotai'
 import { editingNoteIdAtom } from '@/states/editor'
 
 type Props = {
-  navigation: NativeStackNavigationProp<RootStackParamList>
+  renderNavBarLeft: () => ReactNode
 }
 
-export default function DetailScreen({ navigation }: Props) {
+export default function DetailScreen(props: Props) {
+  const { renderNavBarLeft } = props
   const [editingNoteId] = useAtom(editingNoteIdAtom)
-  const handleBackPress = useCallback(() => {
-    navigation.goBack()
-  }, [])
 
   return (
     <Container>
       <Navbar>
-        <TouchableOpacity onPress={handleBackPress} p="sm">
-          <FeatherIcon name="arrow-left" size={24} />
-        </TouchableOpacity>
+        {renderNavBarLeft()}
         <Box flex={1}>
           <Text variant="navbar" textAlign="center">
             Editor

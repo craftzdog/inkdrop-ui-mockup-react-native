@@ -7,6 +7,7 @@ import { DrawerScreenProps } from '@react-navigation/drawer'
 import { CompositeScreenProps } from '@react-navigation/native'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import React, { useCallback, useState } from 'react'
+import DetailScreenForTablet from './detail-tablet'
 import NoteListScreenForTablet from './note-list-tablet'
 
 type Props = CompositeScreenProps<
@@ -17,11 +18,16 @@ type Props = CompositeScreenProps<
 export default function MainScreenForTablet({ navigation }: Props) {
   const { isPortrait } = useResponsiveLayout()
   const [sidebarVisible, setSidebarVisible] = useState(true)
+  const [distractionFreeMode, setDistractionFreeMode] = useState(false)
+
   const toggleSidebar = useCallback(() => {
     setSidebarVisible(visible => !visible)
   }, [])
+  const toggleDistractionFreeMode = useCallback(() => {
+    setDistractionFreeMode(enabled => !enabled)
+  }, [])
 
-  const leftViewVisible = !isPortrait && sidebarVisible
+  const leftViewVisible = !isPortrait && sidebarVisible && !distractionFreeMode
 
   return (
     <ThreeColumnLayout
@@ -32,8 +38,14 @@ export default function MainScreenForTablet({ navigation }: Props) {
           onSidebarToggle={toggleSidebar}
         />
       )}
-      renderRightView={() => <Box flex={1} bg="blue" />}
+      renderRightView={viewProps => (
+        <DetailScreenForTablet
+          {...viewProps}
+          onDistractionFreeModeToggle={toggleDistractionFreeMode}
+        />
+      )}
       leftViewVisible={leftViewVisible}
+      middleViewVisible={!distractionFreeMode}
     />
   )
 }
