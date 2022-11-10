@@ -1,5 +1,5 @@
 import React from 'react'
-import { ThreeColumnLayoutProps } from '@/components/three-column-layout'
+import { ThreeColumnLayoutProps } from 'react-native-three-column-layout'
 import DetailScreen from './detail'
 import { TouchableOpacity } from '@/atoms'
 import FeatherIcon from '@/components/icon'

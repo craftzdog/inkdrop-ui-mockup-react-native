@@ -1,6 +1,5 @@
-import { Box } from '@/atoms'
 import Sidebar from '@/components/sidebar'
-import ThreeColumnLayout from '@/components/three-column-layout'
+import ThreeColumnLayout from 'react-native-three-column-layout'
 import useResponsiveLayout from '@/hooks/use-responsive-layout'
 import { HomeDrawerParamList, RootStackParamList } from '@/navs'
 import { DrawerScreenProps } from '@react-navigation/drawer'
