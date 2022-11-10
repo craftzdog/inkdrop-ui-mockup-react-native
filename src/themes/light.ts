@@ -11,6 +11,7 @@ const p = {
   paper00: '#ffffff',
   paper10: '#f5f5f4',
   paper20: '#e6e6e6',
+  paper100: '#aeaeae',
   paper300: '#767577',
   paper900: '#202020',
   blue70: '#2185d0',
@@ -44,10 +45,14 @@ const theme = createTheme({
     $windowBackground: '#f0f0f0',
     $background: p.paper10,
     $foreground: p.paper900,
+    $navbarBackground: p.paper10,
+    $navbarBorderBottom: p.paper100,
     $sidebarBackground: p.navy20,
     $sidebarForeground: p.navy900,
     $sidebarSeparator: p.paper00 + '20',
-    $headerBarBackground: p.paper20
+    $headerBarBackground: p.paper20,
+    $fieldInputBackground: p.paper00,
+    $fieldInputPlaceholderTextColor: p.paper300
   },
   borderRadii: {
     xs: 4,
@@ -66,6 +71,9 @@ const theme = createTheme({
     },
     sidebar: {
       color: '$sidebarForeground'
+    },
+    navbar: {
+      fontSize: 20
     }
   },
   barVariants: {

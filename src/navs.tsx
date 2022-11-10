@@ -3,7 +3,9 @@ import { NavigatorScreenParams } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import * as React from 'react'
 import Sidebar from './components/sidebar'
-import DetailScreen from './screens/detail'
+import useDrawerEnabled from './hooks/use-drawer-enabled'
+import useResponsiveLayout from './hooks/use-responsive-layout'
+import DetailScreenForPhone from './screens/detail-phone'
 import MainScreen from './screens/main'
 
 export type HomeDrawerParamList = {
@@ -12,23 +14,28 @@ export type HomeDrawerParamList = {
 
 export type RootStackParamList = {
   Home: NavigatorScreenParams<HomeDrawerParamList>
-  Detail: {
-    noteId: string
-  }
+  Detail: undefined
 }
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 const Drawer = createDrawerNavigator<HomeDrawerParamList>()
 
 function Home() {
+  const { isTablet } = useResponsiveLayout()
+  const swipeEnabled = useDrawerEnabled()
+
   return (
     <Drawer.Navigator
       initialRouteName="Main"
       screenOptions={{
-        drawerType: 'back',
-        swipeEdgeWidth: 200
+        drawerType: isTablet ? 'front' : 'back',
+        drawerStyle: {
+          width: isTablet ? 280 : '90%'
+        },
+        swipeEdgeWidth: 200,
+        swipeEnabled: swipeEnabled
       }}
-      drawerContent={props => <Sidebar {...props} />}
+      drawerContent={Sidebar}
     >
       <Drawer.Screen
         name="Main"
@@ -51,7 +58,13 @@ export default function Navigations() {
           headerShown: false
         }}
       />
-      <Stack.Screen name="Detail" component={DetailScreen} options={{}} />
+      <Stack.Screen
+        name="Detail"
+        component={DetailScreenForPhone}
+        options={{
+          headerShown: false
+        }}
+      />
     </Stack.Navigator>
   )
 }

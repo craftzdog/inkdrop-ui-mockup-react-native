@@ -16,14 +16,16 @@ const StyledFlatList = createBox<Theme, AnimateProps<FlatListProps<Note>>>(
   Animated.FlatList
 )
 
-interface Props {
+export interface Props {
   contentInsetTop: number
+  ListHeaderComponent?: React.ComponentType<any> | null | undefined
   onScroll: (event: NativeSyntheticEvent<NativeScrollEvent>) => void
   onItemPress: (noteId: string) => void
   onItemSwipeLeft: (noteId: string, cancel: () => void) => void
 }
 
 const NoteList: React.FC<Props> = ({
+  ListHeaderComponent,
   onScroll,
   contentInsetTop,
   onItemPress,
@@ -51,7 +53,14 @@ const NoteList: React.FC<Props> = ({
       width="100%"
       onScroll={onScroll}
       scrollEventThrottle={16}
-      ListHeaderComponent={<Box width="100%" height={contentInsetTop} />}
+      ListHeaderComponent={
+        <Box>
+          <>
+            <Box width="100%" height={contentInsetTop}></Box>
+            {ListHeaderComponent && <ListHeaderComponent />}
+          </>
+        </Box>
+      }
     />
   )
 }

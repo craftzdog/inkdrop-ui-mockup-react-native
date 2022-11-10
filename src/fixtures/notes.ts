@@ -25,7 +25,7 @@ for (let i = 0; i < 100; ++i) {
       lorem.generateWords(Math.round(Math.random() * 10) + 2)
     ),
     body: capitalizeFirstLetter(
-      lorem.generateSentences(Math.round(Math.random() * 3) + 1)
+      lorem.generateSentences(Math.round(Math.random() * 50) + 1)
     )
   })
 }
