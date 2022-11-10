@@ -1,5 +1,4 @@
-Gmail-like UI with React Native
-================================
+# Gmail-like UI with React Native
 
 A UI mockup for the new version of [Inkdrop](https://www.inkdrop.app/) for mobile, inspired by Gmail for iOS and Android.
 
@@ -9,6 +8,7 @@ A UI mockup for the new version of [Inkdrop](https://www.inkdrop.app/) for mobil
 - Swipe-able list item
 - Bottom action sheet
 - Multiple theme support
+- Tablet screen support
 
 Note: Web is not supported
 
@@ -16,9 +16,12 @@ Note: Web is not supported
 
 ![thumbnail](./doc/thumb2.jpg)
 
+![thumbnail](./doc/thumb3.jpg)
+
 ## Video Tutorial
 
-- https://www.youtube.com/watch?v=w-M9UFHLAl0
+- Part 1: [How to build Gmail-like UI with React Native](https://www.youtube.com/watch?v=w-M9UFHLAl0)
+- Part 2: [How to implement responsive three-column layout with React Native](https://www.youtube.com/watch?v=JU4VBbe23jg)
 
 ## Stack
 
@@ -31,6 +34,7 @@ Note: Web is not supported
 - [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons) - Free Icons
 - [React Native Bottom Sheet](https://github.com/gorhom/react-native-bottom-sheet) - A performant interactive bottom sheet with fully configurable options
 - [jotai](https://jotai.org/) - Primitive and flexible state management for React
+- [React Native Three-Column Layout](https://github.com/craftzdog/react-native-three-column-layout) - A React component providing a three-column layout with animation support for tablet displays
 
 ## Project structure
 
