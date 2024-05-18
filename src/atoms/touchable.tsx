@@ -1,6 +1,6 @@
 import React from 'react'
 import Pressable, { PressableProps } from './pressable'
-import { Platform } from 'react-native'
+import { Platform, StyleProp, ViewStyle } from 'react-native'
 import {
   backgroundColor,
   BackgroundColorProps,
@@ -54,9 +54,8 @@ const Touchable = ({
     <Pressable
       {...rest}
       android_ripple={{ color: rippleColorValue, borderless: rippleBorderless }}
-      // @ts-ignore
       style={({ pressed: isPressed }) =>
-        isPressed ? [style, pressedStyle] : style
+        (isPressed ? [style, pressedStyle] : style) as StyleProp<ViewStyle>
       }
     />
   )
